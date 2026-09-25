@@ -1,1 +1,102 @@
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serwy | سيروي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Serwy</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="mainMenu">
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">التصنيفات</a>
+      <a href="#services">الخدمات</a>
+      <a href="#sell">أضف خدمتك</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="badge">منصة الخدمات والمنتجات</span>
+        <h1>ابحث عن كل ما تحتاجه<br>في <strong>Serwy</strong></h1>
+        <p>
+          اكتشف المنتجات والخدمات من البائعين ومقدمي الخدمات وتواصل معهم مباشرة.
+        </p>
+        <div class="search-box">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="ابحث عن منتج أو خدمة..."
+            oninput="searchItems()"
+          >
+          <button onclick="searchItems()">بحث</button>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="categories">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">استكشف</span>
+          <h2>التصنيفات</h2>
+        </div>
+      </div>
+      <div class="categories">
+        <button class="category" onclick="filterCategory('الكل')">
+          <span>✨</span>
+          <b>الكل</b>
+        </button>
+        <button class="category" onclick="filterCategory('مطاعم')">
+          <span>🍔</span>
+          <b>مطاعم</b>
+        </button>
+        <button class="category" onclick="filterCategory('متاجر')">
+          <span>🛍️</span>
+          <b>متاجر</b>
+        </button>
+        <button class="category" onclick="filterCategory('خدمات')">
+          <span>🛠️</span>
+          <b>خدمات</b>
+        </button>
+        <button class="category" onclick="filterCategory('سيارات')">
+          <span>🚗</span>
+          <b>سيارات</b>
+        </button>
+        <button class="category" onclick="filterCategory('عقارات')">
+          <span>🏠</span>
+          <b>عقارات</b>
+        </button>
+      </div>
+    </section>
+    <section class="section" id="services">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">اكتشف الآن</span>
+          <h2>أحدث المنتجات والخدمات</h2>
+        </div>
+        <span id="resultCount"></span>
+      </div>
+      <div id="productsGrid" class="products-grid"></div>
+    </section>
+    <section class="sell-section" id="sell">
+      <div>
+        <span class="eyebrow">للبائعين</span>
+        <h2>اعرض منتجاتك وخدماتك على Serwy</h2>
+        <p>
+          أنشئ صفحتك داخل المنصة، أضف منتجاتك، واستقبل العملاء مباشرة.
+        </p>
+      </div>
+      <button onclick="openSellerPanel()">
+        ابدأ الآن
+      </button>
+    </section>
+  </main>
+  <footer>
+    <div class="logo">Serwy</div>
+    <p>منصة تجمع العملاء ومقدمي الخدمات في مكان واحد.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
