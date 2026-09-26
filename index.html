@@ -1,1 +1,93 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servy | سيرفي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header>
+  <div class="logo">Servy</div>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#categories">التصنيفات</a>
+    <a href="#services">الخدمات</a>
+    <a href="#sell">أضف خدمتك</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">منصة الخدمات المحلية</span>
+
+    <h1>
+      كل خدمة تحتاجها<br>
+      <strong>في مكان واحد</strong>
+    </h1>
+
+    <p>
+      ابحث عن مقدمي الخدمات واكتشف الخدمات المتاحة بسهولة.
+    </p>
+
+    <div class="search">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="ابحث عن خدمة..."
+        oninput="searchItems()"
+      >
+      <button onclick="searchItems()">بحث</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <h2>التصنيفات</h2>
+
+  <div class="categories">
+    <button onclick="filterCategory('الكل')">✨ الكل</button>
+    <button onclick="filterCategory('مطاعم')">🍔 مطاعم</button>
+    <button onclick="filterCategory('متاجر')">🛍️ متاجر</button>
+    <button onclick="filterCategory('خدمات')">🛠️ خدمات</button>
+    <button onclick="filterCategory('سيارات')">🚗 سيارات</button>
+    <button onclick="filterCategory('عقارات')">🏠 عقارات</button>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-head">
+    <h2>الخدمات</h2>
+    <span id="resultCount"></span>
+  </div>
+
+  <div id="productsGrid" class="grid">
+    <p>جاري تحميل الخدمات...</p>
+  </div>
+</section>
+
+<section class="sell" id="sell">
+  <div>
+    <h2>أضف خدمتك على Servy</h2>
+    <p>اعرض خدماتك ووصل إلى العملاء.</p>
+  </div>
+
+  <button onclick="openSellerPanel()">
+    ابدأ الآن
+  </button>
+</section>
+
+</main>
+
+<footer>
+  Servy — منصة تجمع العملاء ومقدمي الخدمات.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
