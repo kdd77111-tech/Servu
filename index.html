@@ -1,93 +1,290 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Servy | سيرفي</title>
+  <meta name="description" content="Servy - منصة الخدمات المحلية">
+
   <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">Servy</div>
-  <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#categories">التصنيفات</a>
-    <a href="#services">الخدمات</a>
-    <a href="#sell">أضف خدمتك</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
 
-<main>
+      <a href="#" class="logo">
+        <span class="logo-icon">S</span>
+        <span>Servy</span>
+      </a>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <span class="badge">منصة الخدمات المحلية</span>
+      <nav class="nav-links">
+        <a href="#services">الخدمات</a>
+        <a href="#categories">التصنيفات</a>
+        <a href="#join">قدّم خدمتك</a>
+      </nav>
 
-    <h1>
-      كل خدمة تحتاجها<br>
-      <strong>في مكان واحد</strong>
-    </h1>
+      <div class="nav-actions">
+        <button class="login-btn" id="loginBtn">تسجيل الدخول</button>
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
 
-    <p>
-      ابحث عن مقدمي الخدمات واكتشف الخدمات المتاحة بسهولة.
-    </p>
-
-    <div class="search">
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="ابحث عن خدمة..."
-        oninput="searchItems()"
-      >
-      <button onclick="searchItems()">بحث</button>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="section" id="categories">
-  <h2>التصنيفات</h2>
 
-  <div class="categories">
-    <button onclick="filterCategory('الكل')">✨ الكل</button>
-    <button onclick="filterCategory('مطاعم')">🍔 مطاعم</button>
-    <button onclick="filterCategory('متاجر')">🛍️ متاجر</button>
-    <button onclick="filterCategory('خدمات')">🛠️ خدمات</button>
-    <button onclick="filterCategory('سيارات')">🚗 سيارات</button>
-    <button onclick="filterCategory('عقارات')">🏠 عقارات</button>
-  </div>
-</section>
+  <!-- Hero -->
+  <main>
 
-<section class="section" id="services">
-  <div class="section-head">
-    <h2>الخدمات</h2>
-    <span id="resultCount"></span>
-  </div>
+    <section class="hero">
+      <div class="container hero-content">
 
-  <div id="productsGrid" class="grid">
-    <p>جاري تحميل الخدمات...</p>
-  </div>
-</section>
+        <div class="hero-text">
 
-<section class="sell" id="sell">
-  <div>
-    <h2>أضف خدمتك على Servy</h2>
-    <p>اعرض خدماتك ووصل إلى العملاء.</p>
-  </div>
+          <div class="hero-badge">
+            <span>✦</span>
+            اكتشف الخدمات من حولك
+          </div>
 
-  <button onclick="openSellerPanel()">
-    ابدأ الآن
-  </button>
-</section>
+          <h1>
+            كل خدمة تحتاجها،
+            <span>في مكان واحد</span>
+          </h1>
 
-</main>
+          <p>
+            ابحث عن مقدمي الخدمات، قارن الأسعار،
+            واختَر الشخص المناسب لك بسهولة.
+          </p>
 
-<footer>
-  Servy — منصة تجمع العملاء ومقدمي الخدمات.
-</footer>
+          <div class="search-box">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js"></script>
+            <div class="search-icon">⌕</div>
+
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="وش الخدمة اللي تحتاجها؟"
+            >
+
+            <button id="searchBtn">
+              بحث
+            </button>
+
+          </div>
+
+          <div class="popular-searches">
+            <span>الأكثر بحثًا:</span>
+            <button data-search="تصميم">تصميم</button>
+            <button data-search="صيانة">صيانة</button>
+            <button data-search="تنظيف">تنظيف</button>
+            <button data-search="تصوير">تصوير</button>
+          </div>
+
+        </div>
+
+        <div class="hero-card">
+
+          <div class="floating-card card-one">
+            <span class="mini-icon">⭐</span>
+            <div>
+              <strong>4.9</strong>
+              <small>تقييم العملاء</small>
+            </div>
+          </div>
+
+          <div class="hero-circle">
+            <div class="hero-logo">S</div>
+          </div>
+
+          <div class="floating-card card-two">
+            <span class="mini-icon">✓</span>
+            <div>
+              <strong>موثوق</strong>
+              <small>مقدمو خدمات</small>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">تصفح</span>
+            <h2>وش تحتاج اليوم؟</h2>
+          </div>
+
+          <button class="view-all" id="showAllBtn">
+            عرض الكل ←
+          </button>
+        </div>
+
+        <div class="categories" id="categoriesList">
+
+          <button class="category active" data-category="الكل">
+            <span>✨</span>
+            <b>الكل</b>
+          </button>
+
+          <button class="category" data-category="مطاعم">
+            <span>🍔</span>
+            <b>مطاعم</b>
+          </button>
+
+          <button class="category" data-category="متاجر">
+            <span>🛍️</span>
+            <b>متاجر</b>
+          </button>
+
+          <button class="category" data-category="خدمات">
+            <span>🛠️</span>
+            <b>خدمات</b>
+          </button>
+
+          <button class="category" data-category="سيارات">
+            <span>🚗</span>
+            <b>سيارات</b>
+          </button>
+
+          <button class="category" data-category="عقارات">
+            <span>🏠</span>
+            <b>عقارات</b>
+          </button>
+
+          <button class="category" data-category="تصميم">
+            <span>🎨</span>
+            <b>تصميم</b>
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Services -->
+    <section class="services-section" id="services">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">استكشف</span>
+            <h2>خدمات مميزة</h2>
+          </div>
+
+          <div class="results-count" id="resultsCount">
+            الخدمات المتاحة
+          </div>
+
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>جاري تحميل الخدمات...</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Join -->
+    <section class="join-section" id="join">
+
+      <div class="container">
+
+        <div class="join-card">
+
+          <div class="join-content">
+
+            <span class="join-label">لأصحاب الخدمات</span>
+
+            <h2>
+              عندك خدمة؟
+              <br>
+              <span>خل الناس تلقاك.</span>
+            </h2>
+
+            <p>
+              أضف خدمتك على Servy ووصل لعملاء يبحثون عن خدماتك.
+            </p>
+
+            <button class="primary-btn" id="joinBtn">
+              أضف خدمتك الآن
+              <span>←</span>
+            </button>
+
+          </div>
+
+          <div class="join-decoration">
+            <div class="decoration-circle"></div>
+            <span>+</span>
+            <span>✦</span>
+            <span>✓</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="container footer-content">
+
+      <div class="footer-brand">
+
+        <a href="#" class="logo">
+          <span class="logo-icon">S</span>
+          <span>Servy</span>
+        </a>
+
+        <p>
+          منصتك لاكتشاف الخدمات ومقدميها.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#services">الخدمات</a>
+        <a href="#categories">التصنيفات</a>
+        <a href="#join">قدّم خدمتك</a>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 Servy
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="app.js"></script>
 
 </body>
 </html>
