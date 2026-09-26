@@ -1,1 +1,307 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Header */
+
+header {
+  height: 72px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  color: var(--muted);
+}
+
+/* Hero */
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 6%;
+  background:
+    radial-gradient(circle at 20% 20%, white, transparent 35%),
+    radial-gradient(circle at 80% 10%, #e8edf4, transparent 35%),
+    #f2f4f7;
+}
+
+.hero-content {
+  width: min(850px, 100%);
+}
+
+.badge {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  margin: 18px 0;
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1.15;
+  letter-spacing: -3px;
+}
+
+.hero h1 strong {
+  color: #4b5563;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* Search */
+
+.search {
+  display: flex;
+  max-width: 680px;
+  margin: 35px auto 0;
+  padding: 7px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.08);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: 0;
+  outline: 0;
+}
+
+.search button {
+  padding: 0 28px;
+  border-radius: 13px;
+  background: var(--primary);
+  color: white;
+}
+
+/* Sections */
+
+.section {
+  width: min(1180px, 88%);
+  margin: auto;
+  padding: 80px 0;
+}
+
+.section h2 {
+  font-size: 38px;
+  margin-bottom: 28px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Categories */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.categories button {
+  min-height: 120px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.categories button:hover {
+  transform: translateY(-4px);
+}
+
+/* Services */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: #e5e7eb;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card h3 {
+  font-size: 20px;
+}
+
+.card p {
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.card button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 11px;
+  border-radius: 12px;
+  background: #f1f3f5;
+}
+
+/* Seller */
+
+.sell {
+  width: min(1180px, 88%);
+  margin: 20px auto 80px;
+  padding: 45px;
+  border-radius: 28px;
+  background: #111827;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.sell p {
+  color: #cbd5e1;
+}
+
+.sell button {
+  padding: 14px 25px;
+  border-radius: 13px;
+  font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+  padding: 40px;
+  background: white;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+  nav {
+    display: none;
+  }
+
+  .categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sell {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .search {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .search button {
+    min-height: 48px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    width: 90%;
+  }
+
+  .sell {
+    width: 90%;
+  }
+}
